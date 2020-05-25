@@ -11,8 +11,13 @@
 |
 */
 Route::get('/', function () {
-    return view('customer.index');
-});
-Route::get('/admin', function () {
-    return view('admin.dashboard');
+    return view('customer.home');
+})->name('home');
+Route::get('/about', function () {
+    return view('customer.about');
+})->name('about');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
 });
