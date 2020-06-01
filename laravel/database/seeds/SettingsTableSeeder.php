@@ -38,7 +38,7 @@ class SettingsTableSeeder extends Seeder
         if (!$setting->exists) {
             $setting->fill([
                 'display_name' => __('voyager::seeders.settings.site.logo'),
-                'value'        => 'img/logo.png',
+                'value'        => 'default/img/logo.png',
                 'details'      => '',
                 'type'         => 'image',
                 'order'        => 3,

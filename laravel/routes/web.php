@@ -11,13 +11,16 @@
 |
 */
 Route::get('/', function () {
-    return view('customer.home');
+	return view('customer.home');
 })->name('home');
 Route::get('/about', function () {
-    return view('customer.about');
+	$company_teams = App\Model\Customer\CompanyTeam::all();
+	return view('customer.about',[
+		'company_teams'=>$company_teams,
+	]);
 })->name('about');
 
 
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+	Voyager::routes();
 });
